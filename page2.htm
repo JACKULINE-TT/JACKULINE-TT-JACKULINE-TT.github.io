@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRANDS</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: #004d40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #00acc1; /* Cyan color */
+            color: #ffffff;
+            width: 135%;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .strand {
+            background-color: #ffffff;
+            box-shadow: 0 6px 20px rgba(0, 172, 193, 0.2); /* Cyan shadow */
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #00acc1;
+            margin-bottom: 20px;
+            width: 100%;
+            margin-left: 3.5%;
+        }
+
+        .strand:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 172, 193, 0.3);
+        }
+
+        .strand input[type="checkbox"] {
+            display: none;
+        }
+
+        .strand-title {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #00796b; /* Darker cyan */
+            font-weight: bold;
+        }
+
+        .strand-description {
+            margin-bottom: 12px;
+            color: #004d40;
+            font-style: italic;
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, opacity 0.6s ease;
+            opacity: 0;
+            visibility: hidden;
+            background-color: #e0f2f1; /* Light cyan */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .strand input[type="checkbox"]:checked ~ .dropdown-content {
+            max-height: 400px;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-content p {
+            margin: 0 0 10px;
+            color: #004d40;
+        }
+
+        .subject-list {
+            margin: 10px 0 0;
+            padding: 0;
+            list-style-type: none;
+            color: #004d40;
+        }
+
+        .subject-list li {
+            padding: 5px 0;
+        }
+
+        .next-button {
+            margin-top: 20px;
+            background-color: #00796b; /* Dark cyan */
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .next-button:hover {
+            background-color: #004d40; /* Darker cyan */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STRANDS</h1>
+    </header>
+
+    <div class="container">
+        <label class="strand">
+            <input type="checkbox">
+            <div class="strand-title">STEM (Science, Technology, Engineering, and Mathematics)</div>
+            <div class="strand-description">Focuses on scientific and technical subjects.</div>
+            <div class="dropdown-content">
+                <p>Explore STEM to dive deep into fields like biology, chemistry, physics, engineering, and technology. Prepare for careers in medicine, engineering, IT, and research.</p>
+                <ul class="subject-list">
+                    <li>Physics</li>
+                    <li>Biology</li>
+                    <li>Chemistry</li>
+                    <li>Calculus</li>
+                    <li>Engineering Design</li>
+                </ul>
+            </div>
+        </label>
+        
+        <label class="strand">
+            <input type="checkbox">
+            <div class="strand-title">HUMSS (Humanities and Social Sciences)</div>
+            <div class="strand-description">Emphasizes humanities and social studies.</div>
+            <div class="dropdown-content">
+                <p>Ideal for those interested in writing, psychology, communication, sociology, history, and political science. Perfect for future educators, psychologists, and social workers.</p>
+                <ul class="subject-list">
+                    <li>Philosophy</li>
+                    <li>Political Science</li>
+                    <li>Psychology</li>
+                    <li>Sociology</li>
+                    <li>Creative Writing</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="strand">
+            <input type="checkbox">
+            <div class="strand-title">GAS (General Academic Strand)</div>
+            <div class="strand-description">Offers a broad curriculum.</div>
+            <div class="dropdown-content">
+                <p>The GAS strand is for those who want a little bit of everything. It's a flexible option that opens opportunities in a variety of college courses.</p>
+                <ul class="subject-list">
+                    <li>General Mathematics</li>
+                    <li>Earth Science</li>
+                    <li>Social Science</li>
+                    <li>Entrepreneurship</li>
+                    <li>Personal Development</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="strand">
+            <input type="checkbox">
+            <div class="strand-title">EIM (Electrical Installation and Maintenance)</div>
+            <div class="strand-description">Focuses on practical electrical skills.</div>
+            <div class="dropdown-content">
+                <p>Learn the basics of electrical installation, maintenance, and safety. Perfect for those looking to enter technical and vocational careers.</p>
+                <ul class="subject-list">
+                    <li>Basic Electrical Theory</li>
+                    <li>Installation Practices</li>
+                    <li>Safety Procedures</li>
+                    <li>Reading Electrical Blueprints</li>
+                    <li>Troubleshooting</li>
+                </ul>
+            </div>
+        </label>
+
+        <label class="strand">
+            <input type="checkbox">
+            <div class="strand-title">ICT (Information and Communications Technology)</div>
+            <div class="strand-description">Centers around digital technology and information.</div>
+            <div class="dropdown-content">
+                <p>Dive into the world of computing, programming, web development, and digital communications. Prepare for careers in IT, software development, and network management.</p>
+                <ul class="subject-list">
+                    <li>Programming</li>
+                    <li>Web Development</li>
+                    <li>Computer Systems Servicing</li>
+                    <li>Networking Basics</li>
+                    <li>Database Management</li>
+                </ul>
+            </div>
+        </label>
+    </div>
+    <button class="next-button" onclick="location.href='page3.htm'">Next</button>
+</body>
+</html>

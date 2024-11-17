@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="Stand Alone School - Learn about our mission, vision, and activities.">
+  <meta name="keywords" content="school, education, mission, vision, activities, gallery, enrollment">
+  <title>Stand Alone School - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg-color: #fdfd96;
+      --accent-color: #00c2c7;
+      --text-color: #333;
+      --highlight-color: #ff4500;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: var(--main-bg-color);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--accent-color);
+      color: var(--main-bg-color);
+      position: relative;
+    }
+
+    .school-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .school-info .logo {
+      width: 40%;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .menu-toggle-label {
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--main-bg-color);
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .sidebar ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 18px;
+      background-color: var(--accent-color);
+      padding: 10px;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: var(--highlight-color);
+    }
+
+    #menu-toggle:checked + .sidebar {
+      left: 0;
+    }
+
+      .hero {
+      text-align: center;
+      padding: 80px 30px;
+      background-image: url('School.jpg');
+      background-size: cover;
+      width: 98%;
+      color: var(--main-bg-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      resize: vertical; /* Allow vertical resizing */
+      overflow: auto; /* Enable scrollbars for smaller heights */
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--highlight-color);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .stats div {
+      text-align: center;
+    }
+
+    .stats h2 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .content {
+      padding: 20px;
+      background-color: var(--accent-color);
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+      .mission, .vision {
+      color: white;
+      font-size: 20px;
+      padding: 15px;
+      border: 5px solid var(--highlight-color);
+      border-radius: 10px;
+      margin: 20px 0;
+      width: 95%;
+      resize: both;
+      overflow: auto; 
+    }
+
+    .team {
+      background-color: var(--accent-color);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      color:white;
+      font-size:20px;
+    }
+
+    .team-member {
+      margin: 1px 0;
+      text-align: center;
+      font-size:20px;
+      color: white;
+    }
+
+    .team-member img {
+      width: 95%;
+      height:50em;
+      border-radius: 5%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+     .gallery-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 20px;
+      background-color: var(--accent-color);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: inline-flex;
+      gap: 15px;
+      color: var(--accent-color);
+    }
+
+    .gallery img {
+      width: 80%;
+      height: 45em;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      resize: horizontal; /* Allow horizontal resizing */
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .strands {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .strands h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--text-color--);
+    }
+
+    .strand-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .strand {
+      position: relative;
+    }
+
+    .strand img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .strand-title {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: lightblue;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+  
+.team {
+  background-color: var(--accent-color);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(30deg);
+  animation: rotateCube 5s infinite linear;
+  margin: 0 auto;
+}
+
+        .face {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #fff;
+        }
+
+        .front  { transform: translateZ(75px); background-image: url('Team.jpg'); }
+        .back   { transform: rotateY(180deg) translateZ(75px); background-image: url('Team.jpg'); }
+        .right  { transform: rotateY(90deg) translateZ(75px); background-image: url('Team.jpg'); }
+        .left   { transform: rotateY(-90deg) translateZ(75px); background-image: url('Team.jpg'); }
+        .top    { transform: rotateX(90deg) translateZ(75px); background-image: url('Team.jpg'); }
+        .bottom { transform: rotateX(-90deg) translateZ(75px); background-image: url('Team.jpg'); }
+
+        /* Keyframes for rotating the cube in 3D space */
+        @keyframes rotateCube {
+            0%   { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+    footer {
+      background-color: var(--accent-color);
+      padding: 10px;
+      color: white;
+      text-align: center;
+      width: 104%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .stats {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header container">
+    <div class="school-info">
+      <img src="0.png" alt="School Logo" class="logo">
+      <span class="school-name">Stand Alone School</span>
+    </div>
+    <label for="menu-toggle" class="menu-toggle-label">&#9776; Menu</label>
+  </header>
+  <input type="checkbox" id="menu-toggle">
+  <aside class="sidebar" aria-label="Sidebar Navigation">
+    <ul>
+      <li><a href="index.htm"> Home</a></li>
+      <li><a href="page2.htm">Strands</a></li>
+      <li><a href="page3.htm"> About Us</a></li>
+      <li><a href="page4.htm"> Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <section class="hero">
+    <h1>Empowering the Future Leaders of Tomorrow</h1>
+    <p>Join us in providing quality, inclusive education for every student.</p>
+    <a href="enrollment.html">Enroll Now</a>
+  </section>
+
+  <section class="stats container">
+    <div><h2>500+</h2><p>Students</p></div>
+    <div><h2>50+</h2><p>Teachers</p></div>
+    <div><h2>20+</h2><p>Programs</p></div>
+  </section>
+
+  <section class="content container">
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>To provide quality education that nurtures each student's potential and prepares them for a successful future.</p>
+      </div>
+    <div class="vision">
+      <h2>Our Vision</h2>
+      <p>To be a center of excellence in education, fostering innovation, inclusion, and integrity.</p>
+    </div>
+  </section>
+ 
+  <section class="team container">
+  <h2>Meet Our Team</h2>
+  <div class="team-member">
+    <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+    </div>
+  </div>
+  <p><strong>These are the teachers who dedicate themselves to teaching and nurturing the students.</strong></p>
+</section>
+
+  <section class="gallery-container container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="teacher.jpg" alt="School Event 1">
+      <img src="teacher1.jpg" alt="School Event 2">
+      <img src="tc2.jpg" alt="School Event 3">
+      <img src="pluma1.jpg" alt="School Event 4">
+      <img src="pluma2.jpg" alt="School Event 5">
+      <img src="athlete.jpg" alt="School Event 6">
+    </div>
+  </section>
+
+  <section class="strands container">
+    <h2>Our Academic Strands</h2>
+    <div class="strand-images">
+      <div class="strand">
+        <img src="stem.jpg" alt="STEM Strand">
+        <div class="strand-title">STEM</div>
+      </div>
+      <div class="strand">
+        <img src="ict1.jpg" alt="Gas strand">
+        <div class="strand-title">GAS</div>
+      </div>
+      <div class="strand">
+        <img src="humss.jpg" alt="HUMSS Strand">
+        <div class="strand-title">HUMSS</div>
+      </div>
+      <div class="strand">
+        <img src="ict2.jpg" alt="ICT Strand">
+        <div class="strand-title">ICT</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Stand Alone School. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
