@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('School.jpg') no-repeat center center/cover;
+        }
+
+        .signup-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 450px; /* Adjusted for desktop/laptop */
+            backdrop-filter: blur(10px);
+        }
+
+        .form-box h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 600;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: aqua;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid black;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: aqua;
+            outline: none;
+            box-shadow: 0 0 6px rgba(0, 125, 126, 0.4);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background: linear-gradient(90deg, #00c2c7, #009ea2);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #009ea2, #007d7e);
+            transform: translateY(-2px);
+        }
+
+        /* Media Queries for Better Responsiveness */
+        @media (min-width: 768px) {
+            .signup-container {
+                width: 70%;
+                max-width: 500px;
+            }
+
+            .form-box h2 {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .signup-container {
+                width: 50%;
+                max-width: 600px;
+            }
+
+            .form-box h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-box h2 {
+                font-size: 1.6em;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-box">
+            <h2>Pre-Enrollment</h2>
+            <form action="index.htm" method="POST">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="strand">Select Strand</label>
+                    <select id="strand" name="strand" required>
+                        <option value="" disabled selected>Select your strand</option>
+                        <option value="STEM">STEM (Science, Technology, Engineering, Mathematics)</option>
+                        <option value="HUMSS">HUMSS (Humanities and Social Sciences)</option>
+                        <option value="TVL">TVL (Technical-Vocational-Livelihood)</option>
+                        <option value="GAS">GAS (General Academic Strand)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Enroll</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
